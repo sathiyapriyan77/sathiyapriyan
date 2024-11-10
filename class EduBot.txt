@@ -1,0 +1,40 @@
+class EduBot:
+    def __init__(self):
+        self.languages_supported = ['English', 'Spanish', 'French', 'Mandarin']
+        self.features = {
+            'admissions_support': self.admissions_support,
+            'registration_assistance': self.registration_assistance,
+            'finance_and_billing': self.finance_and_billing,
+            'academic_support': self.academic_support,
+            'career_guidance': self.career_guidance,
+        }
+
+    def respond_to_query(self, query_type):
+        if query_type in self.features:
+            return self.features[query_type]()
+        else:
+            return "I'm sorry, I can't help with that."
+
+    def admissions_support(self):
+        return "I can assist you with the admissions process. What specific information do you need?"
+
+    def registration_assistance(self):
+        return "I can guide you through the course registration process. Please provide your details."
+
+    def finance_and_billing(self):
+        return "I can help with tuition fees and financial aid queries. What would you like to know?"
+
+    def academic_support(self):
+        return "I offer tutoring support and can provide updates on results and timetables. How can I assist you?"
+
+    def career_guidance(self):
+        return "I can provide insights for your career decisions. What are you interested in?"
+
+# Example usage:
+edubot = EduBot()
+print(edubot.respond_to_query('admissions_support'))
+print(edubot.respond_to_query('registration_assistance'))
+print(edubot.respond_to_query('finance_and_billing'))
+print(edubot.respond_to_query('academic_support'))
+print(edubot.respond_to_query('career_guidance'))
+print(edubot.respond_to_query('other_query'))
